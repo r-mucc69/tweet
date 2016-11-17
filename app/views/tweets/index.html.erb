@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6" id="top_text">
+      <h2>DIVE07課題</h2>
+      <p>twitter風練習アプリケーション</p>
+      <div id="twitter_bird"><img src="<%= asset_path "tweets_mark.png" %>">
+    </div>
+    </div>
+    <div class="wrapper col-md-5 col-sm-8">
+    <p><%= notice %></p>
+    <h1>ツイート一覧</h1>
+    <%= link_to "ツイートする", new_tweet_path, class: 'btn btn-default' %>
+    
+    <% @tweets.each do |tweet| %>
+    <div class="row">
+      <p><%= tweet.content %></p>
+      <%= link_to "ツイートを編集", edit_tweet_path(tweet.id), data: { confirm: '本当に編集していいですか？' },  class: 'btn btn-default btn-sm btn-success' %>
+      <%= link_to 'ツイートを削除', tweet_path(tweet.id),method: :delete, data: { confirm: '本当に編集していいですか？' },  class: 'btn btn-default btn-sm btn btn-danger' %>
+    </div>
+    <% end %>
+    <div id="page-top-btn" class="page-top-btn">
+      <p><a class="move-page-top" id="move-page-top">▲</a></p>
+    </div>
+  </div>
+</div>
