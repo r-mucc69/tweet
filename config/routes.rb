@@ -14,10 +14,6 @@ Rails.application.routes.draw do
 
   root 'top#index'
 
-  def index
-    @tweets = Tweet.all
-  end
-  
   post 'tweets/new' => 'tweets#new'
   
   # The priority is based upon order of creation: first created -> highest priority.
